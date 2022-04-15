@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Calculator</title>
+</head>
+<style>
+    * {
+        margin: 0px;
+        font-size: calc(20px + 1vw);
+        padding: 0px;
+        box-sizing: border-box;
+    }
+    
+    .type-in {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background-color: grey;
+        color: white;
+        float: right;
+    }
+    
+    .clear-area {
+        width: 100%;
+        height: 80px;
+    }
+    
+    .key-area {
+        width: 100%;
+        height: 80px;
+    }
+    
+    .type-in-clear {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background-color: red;
+        color: white;
+        float: right;
+    }
+    
+    .type-in-arithmetics {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background-color: orange;
+        color: white;
+        float: right;
+    }
+    
+    .display-panel {
+        width: 100%;
+        height: 100px;
+        grid-column: span 8;
+        border: 5px groove grey;
+        padding: 10px;
+        margin: 10px;
+    }
+    
+    .container-m {
+        width: 80%;
+        margin: auto;
+    }
+</style>
+
+<body>
+    <div class="container-m">
+        <div class="display-panel" id="display-panel">
+        </div>
+        <div class="clear-area">
+            <input type="button" class="type-in-clear" value="AC" onclick="clear_m()">
+        </div>
+        <div class="key-area">
+            <input type="button" class="type-in" value="1" onclick="display('1');">
+            <input type="button" class="type-in" value="2" onclick="display('2');">
+            <input type="button" class="type-in" value="3" onclick="display('3');">
+            <input type="button" class="type-in" value="4" onclick="display('4');">
+            <input type="button" class="type-in" value="5" onclick="display('5');">
+            <input type="button" class="type-in" value="6" onclick="display('6');">
+            <input type="button" class="type-in" value="7" onclick="display('7');">
+            <input type="button" class="type-in" value="8" onclick="display('8');">
+            <input type="button" class="type-in" value="9" onclick="display('9');">
+            <input type="button" class="type-in" value="0" onclick="display('0');">
+            <input type="button" class="type-in-arithmetics" value="*" onclick="display('*');">
+            <input type="button" class="type-in-arithmetics" value="/" onclick="display('/');">
+            <input type="button" class="type-in-arithmetics" value="+" onclick="display('+');">
+            <input type="button" class="type-in-arithmetics" value="-" onclick="display('-');">
+            <input type="button" class="type-in-arithmetics" value="%" onclick="display('%');">
+            <input type="button" class="type-in-arithmetics" value="=" onclick="cal();">
+        </div>
+    </div>
+</body>
+<script>
+    function cal() {
+
+        let x = document.getElementById("display-panel").innerHTML;
+        let result = 0;
+        result = eval(x);
+        document.getElementById("display-panel").innerHTML = result;
+    }
+
+    function display(val) {
+        document.getElementById("display-panel").innerHTML += val;
+    }
+
+    function clear_m() {
+        document.getElementById("display-panel").innerHTML = "";
+    }
+</script>
+
+</html>
