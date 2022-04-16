@@ -1,8 +1,10 @@
 var audio = new Audio('click.mp3');
 
-function cal() {
-
+function click_m() {
     audio.play();
+}
+
+function cal() {
     let x = document.getElementById("display-panel").innerHTML;
     let result = 0;
     result = eval(x);
@@ -10,11 +12,9 @@ function cal() {
 }
 
 function display(val) {
-    audio.play();
     document.getElementById("display-panel").innerHTML += val;
 }
 
 function clear_m() {
-    audio.play();
     document.getElementById("display-panel").innerHTML = "";
 }
